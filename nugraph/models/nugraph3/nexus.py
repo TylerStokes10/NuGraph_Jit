@@ -6,7 +6,7 @@ from torch.utils.checkpoint import checkpoint
 
 from torch_geometric.nn import MessagePassing, SimpleConv
 
-class NexusDown(MessagePassing):
+class NexusDown(MessagePassing):     
     def __init__(self,
                  planar_features: int,
                  nexus_features: int,
@@ -29,7 +29,8 @@ class NexusDown(MessagePassing):
 
     def forward(self, x: Tensor, edge_index: Tensor, n: Tensor) -> Tensor:
         return self.propagate(edge_index=edge_index, x=x, n=n)
-
+    
+                
     def message(self, x_i: Tensor, n_j: Tensor) -> Tensor:
         return self.edge_net(cat((x_i, n_j), dim=-1).detach()) * n_j
 

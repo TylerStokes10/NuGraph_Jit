@@ -1,0 +1,29 @@
+checkpoint: true
+event_classes:
+- nu
+- pdk
+event_head: true
+filter_head: false
+in_features: 8
+lr: 0.001
+nexus_features: 32
+num_iters: 5
+planar_features: 128
+planes:
+- u
+- v
+- y
+semantic_classes:
+- pion
+- muon
+- kaon
+- hadron
+- shower
+- michel
+- diffuse
+semantic_head: true
+vertex_aggr: lstm
+vertex_head: false
+vertex_lstm_features: 32
+vertex_mlp_features:
+- 32
